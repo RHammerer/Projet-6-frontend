@@ -1,0 +1,86 @@
+.modal {
+    position: relative;
+    width: 630px;
+    height: 690px;
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.3em;
+}
+.galerie {
+    color: black;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.goBack{
+position: absolute;
+top: 20px;
+left: 20px;
+border: 0;
+background-color: transparent;
+font-size: 1.3em;
+}
+
+.addPicture {
+    position: absolute;
+    bottom: 10px;
+    right: 200px;
+	border-radius: 60px ;
+    border: 0px;
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	padding: 10px 50px;
+	text-align: center;
+}
+
+.validate {
+    position: absolute;
+    bottom: 10px;
+    right: 235px;
+	border-radius: 60px ;
+    border: 0px;
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+    background: #A7A7A7;
+	padding: 10px 50px;
+	text-align: center;
+}
+.modal-content {
+	width: 90%;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	justify-content: center;
+	gap: 5px;
+    padding-left: 30px;
+}
+
+.modal-content figure {
+	width: 100%;
+    position: relative;
+}
+
+
+.modal-content figure img {
+	width: 100%;
+	object-fit: cover;
+    
+}
+
+.modal-content figure figcaption {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: white;
+	background-color: black;
+	border-radius: 5px;
+	cursor: pointer;
+}

@@ -1,5 +1,12 @@
 const gallery = document.querySelector(".gallery");
 const categoriesElement = document.querySelector(".categories");
+const adminPanel = document.querySelector(".admin-panel");
+const buttonFirstModal = document.querySelector("#display-modal-1");
+const firstModal = document.querySelector("#modal-1");
+const secondModal = document.querySelector("#modal-2");
+const login = document.querySelector(".login");
+const logout = document.querySelector(".logout");
+const modalContent = document.querySelector(".modal-content");
 
 let works = [];
 
@@ -104,6 +111,7 @@ const createButtonCategory = (category) => {
   });
 
   categoriesElement.appendChild(button);
+  button.classList.add("filtre");
 };
 
 const createCategories = (categories) => {
@@ -120,6 +128,55 @@ const init = async () => {
 
   injectDataHtml(works);
   createCategories(categories);
+  injectWorksModal(works);
 };
 
 init();
+
+if (token !== null) {
+  adminPanel.style.display = "flex";
+
+  buttonFirstModal.addEventListener("click", (event) => {
+    event.preventDefault();
+    firstModal.style.display = "flex";
+  });
+
+  login.style.display = "none";
+  logout.style.display = "flex";
+  buttonFirstModal.style.display = "flex";
+
+  logout.addEventListener("click", () => {
+    sessionStorage.clear();
+    window.location.reload();
+    console.log("sessionStorage vidé avec succès !");
+  });
+}
+const injectWorksModal = (works) => {
+  works.forEach((work) => {
+    const figure = document.createElement("figure");
+    const figcaption = document.createElement("figcaption");
+    const image = document.createElement("img");
+
+    figcaption.textContent = "P";
+    image.src = work.imageUrl;
+
+    figcaption.addEventListener("click", async () => {
+      console.log(work.id);
+      const response = await deleteWork(work.id);
+      console.log(response);
+    });
+
+    figure.appendChild(image);
+    figure.appendChild(figcaption);
+    modalContent.appendChild(figure);
+  });
+};
+
+const deleteWork = async (id) => {
+  return await fetch(`http://localhost:5678/api/works/${id}'`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

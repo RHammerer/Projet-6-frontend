@@ -1,4 +1,5 @@
 const loginForm = document.querySelector("#login");
+const loginFailed = document.querySelector("#login_failed");
 
 const getLogin = async (data) => {
   const user = {
@@ -27,8 +28,13 @@ loginForm.addEventListener("submit", async (event) => {
   if (response.status === 200) {
     console.log(user);
     sessionStorage.setItem("token", user.token);
+    window.location = "index.html";
   }
 
   if (response.status === 404 || response.status === 401) {
+    loginFailed.style.display = "flex";
+    setTimeout(() => {
+      loginFailed.style.display = "none";
+    }, 3000);
   }
 });
