@@ -14,23 +14,6 @@ let works = [];
 const token = sessionStorage.getItem("token");
 
 const getImagesData = async () => {
-  //   return fetch("http://localhost:5678/api/works")
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       return response.json(); // Assuming the response is in JSON format
-  //     })
-  //     .then((data) => {
-  //       // Do something with the data
-  //       console.log(data);
-  //       return data;
-  //     })
-  //     .catch((error) => {
-  //       // Handle any errors
-  //       console.error("Fetch error:", error);
-  //     });
-
   const response = await fetch("http://localhost:5678/api/works");
   const data = await response.json();
 
@@ -43,15 +26,6 @@ const getCategories = async () => {
 
   return data;
 };
-
-// const injectDataHtml = async () => {
-//   array = await getImagesData();
-//   let gallery = document.querySelector(".gallery");
-//   array.forEach((element) => {
-//     const imageContainer = document.createElement("figure");
-//     figure.classListe.add("imagesContainer");
-//   });
-// };
 
 const injectDataHtml = (works) => {
   works.forEach((work) => {
