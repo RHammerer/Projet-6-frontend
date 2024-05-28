@@ -288,5 +288,8 @@ a{
 	border-radius: 10px;
 }
 
-
+.line {
+	width: 80%;
+	color: red;
+}
 

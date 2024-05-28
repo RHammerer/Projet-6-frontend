@@ -7,6 +7,7 @@ const secondModal = document.querySelector("#modal-2");
 const login = document.querySelector(".login");
 const logout = document.querySelector(".logout");
 const modalContent = document.querySelector(".modal-content");
+const filtres = document.querySelector(".categories");
 
 let works = [];
 
@@ -143,7 +144,9 @@ if (token !== null) {
 
   login.style.display = "none";
   logout.style.display = "flex";
+  filtres.style.display = "none";
   buttonFirstModal.style.display = "flex";
+  filtres.style.display = "none";
 
   logout.addEventListener("click", () => {
     sessionStorage.clear();
@@ -156,14 +159,21 @@ const injectWorksModal = (works) => {
     const figure = document.createElement("figure");
     const figcaption = document.createElement("figcaption");
     const image = document.createElement("img");
+    const icon = document.createElement("img");
 
-    figcaption.textContent = "P";
+    icon.src = "./assets/images/trash-can-solid.svg";
+    icon.alt = "icone poubelle";
+
+    figcaption.appendChild(icon);
     image.src = work.imageUrl;
 
     figcaption.addEventListener("click", async () => {
       console.log(work.id);
       const response = await deleteWork(work.id);
       console.log(response);
+      if (response.status === 204) {
+        updateUi();
+      }
     });
 
     figure.appendChild(image);
@@ -172,11 +182,10 @@ const injectWorksModal = (works) => {
   });
 };
 
-const deleteWork = async (id) => {
-  return await fetch(`http://localhost:5678/api/works/${id}'`, {
-    method: "DELETE",
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+const updateUi = async () => {
+  removeAllImages();
+  modalContent.innerHTML = "";
+  const works = await getImagesData();
+  injectDataHtml(works);
+  injectWorksModal(works);
 };

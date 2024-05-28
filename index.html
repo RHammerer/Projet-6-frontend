@@ -31,7 +31,7 @@
         <ul>
           <li>projets</li>
           <li>contact</li>
-          <li><a class="login" href="/login.html">login</a></li>
+          <li><a class="login" href="./login.html">login</a></li>
           <li><a class="logout" href="#">logout</a></li>
           <li>
             <img
@@ -115,25 +115,33 @@
         <button class="close" id="close-modal-2">
           <i class="fa-solid fa-xmark"></i>
         </button>
-        <div class="modal-content">
-          <form id="imageForm">
-            <label for="imageInput">Choose an image:</label>
-            <input type="file" id="imageInput" accept="image/*" required />
+        <div class="modal-content-2">
+          <form id="imageForm" enctype="multipart/form-data">
+            <div class="image-container">
+              <label for="imageInput" class="image-label"
+                >+ Ajouter une image:</label
+              >
+              <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                name="image"
+                required
+              />
+            </div>
 
-            <label for="title">Title:</label>
+            <label for="title">Titre:</label>
             <input type="text" id="title" name="title" required />
 
-            <label for="category">Choose a category:</label>
+            <label for="category">Catégorie:</label>
             <select id="category" name="category" required>
-              <option value="nature">Nature</option>
-              <option value="architecture">Architecture</option>
-              <option value="food">Food</option>
-              <!-- Add more categories as needed -->
+              <option value="1">Objets</option>
+              <option value="2">Appartements</option>
+              <option value="3">Hotels et Restaurants</option>
             </select>
-
-            <button type="button" onclick="submitForm()">Submit</button>
+            <hr class="line" />
+            <button class="submit-btn" type="submit" disabled>Valider</button>
           </form>
-          <button class="validate">Valider</button>
         </div>
       </section>
     </aside>

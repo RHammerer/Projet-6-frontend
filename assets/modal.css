@@ -81,6 +81,116 @@ font-size: 1.3em;
 	right: 10px;
 	color: white;
 	background-color: black;
-	border-radius: 5px;
+	border-radius: 3px;
 	cursor: pointer;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content figure figcaption img {
+    width: 10px;
+    height: 10px;
+}
+.modal-content-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#imageForm {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    font-size: large;
+    gap: 10px;
+}
+
+/* #imageForm button[type='submit'] {
+    cursor: not-allowed;
+} */
+
+#category {
+    width: 60%;
+}
+
+.image-container {
+    border-radius: 3px;
+background: #E8F1F6;
+height: 169px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.image-label {
+    border-radius: 50px;
+background: #CBD6DC;
+color: #306685;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 14px;
+font-weight: 500;
+padding: 15px 10px;
+width: 173px;
+}
+
+*:disabled {
+    background-color: grey;
+    color: white;
+}
+
+.submit-btn {
+    position: absolute;
+    bottom: 40px;
+    right: 230px;
+    border-radius: 50px;
+background: lightgray;
+color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 14px;
+font-weight: 500;
+padding: 15px 10px;
+width: 173px;
+border: 0px;
+}
+
+.submit-btn.valid {
+    background: #1D6154;
+color: white;
+}
+
+#imageInput {
+	display: none;
+
+}
+
+#title {
+    height: 50px;
+    border: 0px;
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+}
+
+#category {
+    width: 100%;
+    height: 50px;
+    border: 0px;
+    box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+}
+
+.preview {
+    width: 129px;
+    height: 193;
+}
+.cursor-on {
+    cursor: pointer;
+}
+.cursor-off {
+    cursor: not-allowed;
 }
