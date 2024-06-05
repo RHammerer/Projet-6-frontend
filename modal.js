@@ -78,61 +78,11 @@ imageForm.addEventListener("input", () => {
   }
 });
 
-// function onClickSendImageButton(event) {
-//   const fileInput = document.getElementById("imageInput").files[0];
-//   const imageNameInput = document.getElementById("title").value;
-//   const categoryInput = 0;
-
-//   // // Vérifier si une image et un nom d'image ont été fournis
-//   // if (fileInput.files.length === 0 || !imageNameInput.value.trim()) {
-//   //   alert('Veuillez sélectionner une image et donner un nom.');
-//   //   return;
-//   // }
-
-//   const jsonObject = {
-//     image: fileInput,
-//     title: imageNameInput,
-//     category: categoryInput,
-//   };
-//   console.log(jsonObject);
-//   fetch(`http://localhost:5678/api/works`, {
-//     method: "POST",
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//     body: JSON.stringify(jsonObject),
-//   })
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error(`HTTP error! Status: ${response.status}`);
-//       }
-//       return response.json(); // Parse the response as JSON
-//     })
-//     .then((data) => {
-//       console.log("POST request successful:", data);
-//       // Handle the response data as needed
-//     })
-//     .catch((error) => {
-//       console.error("Error making POST request:", error);
-//       // Handle errors
-//     });
-// }
-
 async function submitForm() {
   // Récupérer les éléments du formulaire
   const form = document.getElementById("imageForm");
   const formData = new FormData(form);
-  console.log(formData);
-  // const fileInput = document.getElementById("imageInput").files[0];
-  // const imageNameInput = document.getElementById("title").value;
-  // const categoryInput = 0;
-  // formData.append("image", fileInput);
-  // formData.append("title", imageNameInput);
-  // formData.append("category", categoryInput);
-  console.log(formData);
-  formData.forEach((value, key) => {
-    console.log(`${key}: ${value}`);
-  });
+  formData.forEach((value, key) => {});
   // Effectuer la requête POST
 
   const response = await postWork(formData);
@@ -141,27 +91,6 @@ async function submitForm() {
   if (response.status === 201) {
     updateUi();
   }
-  // fetch(`http://localhost:5678/api/works/`, {
-  //   method: "POST",
-  //   headers: {
-  //     Authorization: `Bearer ${token}`,
-  //   },
-  //   body: formData,
-  // })
-  //   .then((response) => {
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! Status: ${response.status}`);
-  //     }
-  //     return response.json(); // Vous pouvez ajuster cela en fonction de la réponse du serveur
-  //   })
-  //   .then((data) => {
-  //     console.log("POST request successful:", data);
-  //     // Traiter les données de la réponse si nécessaire
-  //   })
-  //   .catch((error) => {
-  //     console.error("Error making POST request:", error);
-  //     // Gérer les erreurs
-  //   });
 }
 
 imageForm.addEventListener("submit", (e) => {

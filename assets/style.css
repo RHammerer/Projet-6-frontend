@@ -227,7 +227,15 @@ a{
 	justify-content: center;
 	align-items: center;
 }
-
+.image-logo{
+	font-size: 40px;
+}
+.text-modale{
+	font-size: 14px;
+}
+.image-container{
+gap: 10px;
+}
 .modal-overlay {
 	position: fixed;
 	top: 0;

@@ -118,9 +118,11 @@
         <div class="modal-content-2">
           <form id="imageForm" enctype="multipart/form-data">
             <div class="image-container">
+              <p><i class="fa-solid fa-image image-logo"></i></p>
               <label for="imageInput" class="image-label"
                 >+ Ajouter une image:</label
               >
+              <p class="text-modale">jpg, png : 4mo max</p>
               <input
                 type="file"
                 id="imageInput"
@@ -135,6 +137,7 @@
 
             <label for="category">Catégorie:</label>
             <select id="category" name="category" required>
+              <option value="0"></option>
               <option value="1">Objets</option>
               <option value="2">Appartements</option>
               <option value="3">Hotels et Restaurants</option>
