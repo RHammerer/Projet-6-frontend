@@ -59,7 +59,7 @@ const createButtonCategory = (category) => {
     let imagesData = await getImagesData();
     console.log(imagesData);
 
-    //Obtenir les imaes correspondznt au catégorie id
+    //Obtenir les images correspondant au catégorie id
     let filtredCategories;
     if (category.id === 0) {
       filtredCategories = imagesData;
@@ -68,13 +68,6 @@ const createButtonCategory = (category) => {
         (obj) => obj.categoryId === category.id
       );
     }
-
-    // const filtredCategories =
-    //   category.id === 0
-    //     ? imagesData
-    //     : (filtredCategories = imagesData.filter(
-    //         (obj) => obj.categoryId === category.id
-    //       ));
 
     //Supprimer les images déjà affichée
     removeAllImages();
@@ -120,7 +113,6 @@ if (token !== null) {
   logout.style.display = "flex";
   filtres.style.display = "none";
   buttonFirstModal.style.display = "flex";
-  filtres.style.display = "none";
 
   logout.addEventListener("click", () => {
     sessionStorage.clear();
