@@ -9,7 +9,9 @@ const imageForm = document.querySelector("#imageForm");
 const formTitle = document.querySelector("#title");
 const formCategory = document.querySelector("#category");
 const submitBtn = document.querySelector(".submit-btn");
-const preview = document.querySelector(".image-label");
+const imageLabel = document.querySelector(".image-label");
+const imageText = document.querySelector(".text-modale");
+const imageLogo = document.querySelector(".image-logo");
 
 closeFirstModal.addEventListener("click", () => {
   firstModal.style.display = "none";
@@ -57,8 +59,9 @@ imageInput.addEventListener("change", (e) => {
   img.alt = "image temporaire";
 
   imageContainer.appendChild(img);
-
-  preview.style.display = "none";
+  imageText.style.display = "none";
+  imageLogo.style.display = "none";
+  imageLabel.style.display = "none";
 });
 imageForm.addEventListener("input", () => {
   console.log("in");
@@ -89,6 +92,11 @@ async function submitForm() {
   console.log(response);
 
   if (response.status === 201) {
+    form.reset();
+    imageText.style.display = "block";
+    imageLogo.style.display = "block";
+    imageLabel.style.display = "block";
+    document.querySelector(".preview").remove();
     updateUi();
   }
 }
